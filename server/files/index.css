@@ -30,26 +30,125 @@ ul {
 }
 
 /* Task 2.1. Lay out the childs of the 'body' using Grid Template Areas. */
+body {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "footer";
+  grid-template-rows: auto auto 1fr auto;
+  min-height: 100vh;
+}
 
+/* Assign grid areas */
+header {
+  grid-area: header;
+}
+
+nav {
+  grid-area: nav;
+}
+
+main {
+  grid-area: main;
+  overflow-y: auto;
+}
+
+footer {
+  grid-area: footer;
+}
 
 /* Task 3.1. Make the header element a flex container and center its children
    vertically and horizontally.
  */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+/* Center the nav's header and list */
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav h2 {
+  margin-left: 34px;
+  text-align: left;
+}
+
+/* Removing unnecessary space and bullets from the lists */
+ul {
+  padding: 0px;
+  margin: 16px;
+  list-style-type: none;
+}
 
 /* Task 3.2. Make the list items of the unordered list in the nav element a flex container, 
    use column direction and center the child items
  */
+nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+/* Full width for navigation buttons */
+nav button {
+  width: 100%;
+  min-width: 120px;
+}
 
 /* Task 3.3. Make the main element a Flexbox container */
-
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  gap: 16px;
+  padding: 16px;
+}
 
 /* Task 3.4. Make the footer's ul a Flexbox container */
+footer ul {
+  display: flex;
+  flex-wrap: warp;
+  justify-content: center;
+  gap: 12px;
+}
 
+  /* Task 4.1. Change the grid template areas for desktop view */
+  @media screen and (min-width: 900px) {
+    body {
+      grid-template-areas:
+        "header header"
+        "nav main"
+        "footer footer";
+      grid-template-columns: 224px auto;
+      grid-template-rows: 96px 1fr 72px;
+    }
+    /* Nav to the top left corner and add some padding */
+    nav {
+      align-items: flex-start;
+      padding-left: 16px;
+    }
+  
+  /* Task 4.2. Change the nav's ul to a horizontal layout */
+    nav ul {
+      align-items: flex-start;
+    }
+  }
 
 /* From here on styling from exercise 1 */
 img {
   border-radius: 12px;
+  max-width: 100%;
+  height: auto;
 }
 
 article {
